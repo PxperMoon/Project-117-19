@@ -1,0 +1,61 @@
+body {
+    font-size:medium;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
+    background-color:#e3a6c0 ;
+    text-decoration-color: #7cc495;
+}
+
+#score {
+    float:left;
+    font-size:x-large;
+    font-family:fantasy;
+}
+
+#timer {
+    float:right;
+    font-size: x-large;
+    font-family:fantasy;
+}
+
+#sketchAssigned {
+    font-size: large;
+}
+
+h1
+{
+  font-family: 'Special Elite', fantasy;
+  color:rgba(0, 42, 255, 0.236);
+  background-color: cornsilk;
+}
+
+#show_sketch
+{
+  float:right;
+}
+
+canvas 
+  {
+    border:5px solid white;
+    border-radius:20px;
+    margin-top:150px;
+    box-shadow:5px 5px 5px grey;
+    box-shadow: 1px 1px 38px #ffffff;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+@keyframes example {
+
+  from {box-shadow: 1px 1px 38px grey;}
+  to {box-shadow: 1px 1px 38px white;}
+
+}
+
+
+p, span
+  {
+    padding-top:10px;
+    font-family: 'Special Elite', fantasy;
+    font-size:25px;
+    
+  }
