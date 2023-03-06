@@ -58,16 +58,47 @@ function setup() {
 }
 
 function draw() {
+    function check_sketch() {
+        timer_counter++;
+        answer_holder = "";
+        timer_check = "";
+        updateCanvas();
+    }
 
-    if(draw)
-
+    if(drawn_sketch == random_no) {
+        answer_holder = "set";
+        score = score + 1;
+        document.getElementById("score").innerHTML = "Score: " + score;
+    }
+    
+    if(mouseIsPressed) {
+        line(pmouseX, pmouseY, mouseX, mouseY);
+        stroke("#DE4D86");
+        fill("#DE4D86");
+    }
 }
 
-function check_sketch() {
-
+function classifyCanvas() {
+    classifier.classify(canvas, gotResult);
 }
+
+function gotResult(error, results) {
+    if(error) {
+        console.log(error);
+    }
+
+    console.log(results);
+
+    document.getElementById("guessedSketch").innerHTML = "Sketch Guessed: " + results[0].label;
+    document.getElementById("Confidence").innerHTML = "Confidence: " + Math.round(results[0].confidence * 100) + "%";
+
+    utterThis = new SpeechSynthesisUtterance(results[0].label);
+    synth.speak(utterThis);
+}
+
 
 function updateCanvas() {
     background("white");
-    
+    random_no = Math.floor(Math.random(quick_draw_data_set));
+    document.getElementById("sketchAssigned").innerHTML = "Sketch to be Drawn: " + random_no;
 }
